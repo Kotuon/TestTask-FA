@@ -46,7 +46,7 @@ void ATestTaskFACharacter::BeginPlay() {
 }
 
 ////////////////////////////////////////////////////////////////////////////
-///Input
+/// Input
 
 void ATestTaskFACharacter::SetupPlayerInputComponent(
     UInputComponent* PlayerInputComponent ) {
@@ -80,6 +80,8 @@ void ATestTaskFACharacter::SetupPlayerInputComponent(
 }
 
 void ATestTaskFACharacter::Move( const FInputActionValue& Value ) {
+    if ( inputStatus != E_InputStatus::IS_Game ) return;
+
     // input is a Vector2D
     FVector2D MovementVector = Value.Get< FVector2D >();
 
@@ -91,6 +93,8 @@ void ATestTaskFACharacter::Move( const FInputActionValue& Value ) {
 }
 
 void ATestTaskFACharacter::Look( const FInputActionValue& Value ) {
+    if ( inputStatus != E_InputStatus::IS_Game ) return;
+
     // input is a Vector2D
     FVector2D LookAxisVector = Value.Get< FVector2D >();
 
@@ -99,4 +103,8 @@ void ATestTaskFACharacter::Look( const FInputActionValue& Value ) {
         AddControllerYawInput( LookAxisVector.X );
         AddControllerPitchInput( LookAxisVector.Y );
     }
+}
+
+void ATestTaskFACharacter::SetInputStatus( E_InputStatus newInputStatus ) {
+    inputStatus = newInputStatus;
 }

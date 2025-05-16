@@ -16,6 +16,12 @@ struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN( LogTemplateCharacter, Log, All );
 
+UENUM()
+enum class E_InputStatus : uint8 {
+    IS_Game UMETA( DisplayName = "InputGame" ),
+    IS_Menu UMETA( DisplayName = "InputMenu" )
+};
+
 UCLASS( config = Game )
 class ATestTaskFACharacter : public ACharacter {
     GENERATED_BODY()
@@ -42,6 +48,9 @@ class ATestTaskFACharacter : public ACharacter {
 
 public:
     ATestTaskFACharacter();
+
+    UFUNCTION( BlueprintCallable )
+    void SetInputStatus( E_InputStatus newInputStatus );
 
 protected:
     virtual void BeginPlay();
@@ -72,4 +81,7 @@ public:
     UCameraComponent* GetFirstPersonCameraComponent() const {
         return FirstPersonCameraComponent;
     }
+
+private:
+    E_InputStatus inputStatus = E_InputStatus::IS_Game;
 };
