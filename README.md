@@ -1,5 +1,7 @@
 # Flawless Abbey Developer Task made by Kelson Wysocki
 
+*A built version for Windows is in the ProjectBuild directory.*
+
 ## Inventory system
 ### Design
 I made an item class inherited from an interactable actor class (later also used for dialogue).
@@ -25,14 +27,14 @@ Drag and drop anywhere that isn't one of the inventory slots to place the item i
 #### 2D Items:
 "Forget note" button is in the top left, under the close button. It will remove the note from the inventory and not place it back into the world.
 		
-Press "Escape" or close button to exit viewport and return to inventory. Press "I" to exit inventory completely
+Press "Escape" or the close button to exit the viewport and return to the inventory. Press "I" to exit inventory completely
 	
 #### 3D Items:
 3D items can be rotated while holding left click and moving the mouse.
 They can be moved using WASD.
 You can zoom the camera using the scroll wheel on the mouse.
 		
-Press "Escape" or close button to exit viewport and return to inventory. Press "I" to exit inventory completely
+Press "Escape" or the close button to exit the viewport and return to the inventory. Press "I" to exit inventory completely
 		
 ## Dialogue system
 ### Design
